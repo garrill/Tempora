@@ -17,7 +17,8 @@
 	
 	--bo-color: rgb(221 220 219);
 	--bg-color: rgb(255 255 255);
-	--ff-color: rgba(208 228 255 / 0.2);
+	/* --ff-color: rgba(208 228 255 / 0.2);  */
+	--ff-color: rgba(246 250 255); 
 	
 	--sp-color: rgb(21 122 255);
 }
@@ -32,7 +33,8 @@
 		--cd-color: rgb(156 152 147);
 		
 		--bo-color: rgb(48 48 48);
-		--ff-color: rgb(52 49 39 / 0.2);
+		/* --ff-color: rgb(52 49 39 / 0.25); */
+		--ff-color: rgb(13 12 10);
 		
 		--bg-color: #000;
 		
@@ -95,7 +97,7 @@ body {
 /* Hide empty titles */
 .articleTitle h1 a:empty {
 	display: block;
-	margin-top: -20px;
+	margin-top: -0.7em;
 }
 
 .feedMeta {
@@ -107,7 +109,6 @@ body {
 	padding-block: 16px;
 	line-height: 1.5;
 	min-height: calc(2.65em + 32px);
-	
 }
 
 .feedMeta div {
@@ -158,8 +159,7 @@ body {
 	font-size: 1em;
 	line-height: 1.8;
 	letter-spacing: 0.01em;
-	padding-block: 2em;
-	
+	padding-block: 26px;
 }
 
 .articleBody h1, .articleBody h2, .articleBody h3, .articleBody h4, .articleBody h5 {
@@ -181,13 +181,18 @@ body {
 
 .articleBody pre {
 	padding: 1.6em;
-	margin: 1.6em ;
+	margin: 0;
 	border-radius: var(--corner-r);
 	background: var(--ff-color);
 	position: relative;
-	white-space: break-spaces;
+	/* white-space: break-spaces; */
 	font-family: var(--mono-fnt);
-	color: var(--cd-color)
+	color: var(--cd-color);
+	max-width: 100%;
+	overflow: auto;
+	overflow-y: hidden;
+	word-wrap: normal;
+	word-break: normal;
 }
 
 .articleBody code {
@@ -197,6 +202,61 @@ body {
 	padding: 0.1em 0.5em;
 	position: relative;
 	font-family: var(--mono-fnt);
+}
+
+.nnw-overflow {
+	overflow-x: auto;
+	
+}
+
+table {
+	border-spacing: 0;
+	border: 1px solid var(--bo-color);
+	table-layout: fixed;
+	/* display: block; */
+	padding: 0;
+	/* border: none; */
+	margin-bottom: 1px;
+}
+
+table table {
+	border: none;
+}
+
+table td, table th {
+	-webkit-hyphens: none;
+	word-break: normal;
+	border: 1px solid var(--bo-color);
+	border-top: none;
+	border-left: none;
+	padding: 5px;
+}
+
+table td:has(pre) {
+	padding: 0;
+}
+
+table tr :matches(td, th):last-child {
+	border-right: none;
+}
+
+table :matches(thead, tbody, tfoot):last-child > tr:last-child :matches(td, th) {
+	border-bottom: none;
+}
+
+.articleBody td pre {
+	padding: 0.8em;
+	border-radius: 0;
+}
+table td.gutter {
+	padding: 0;
+	position: sticky;
+	left: 0;
+	z-index: 2;
+}
+table .gutter pre {
+	text-align: right;
+	color: var(--sp-color);
 }
 
 .articleBody hr {
@@ -229,7 +289,7 @@ body {
 	margin-bottom: 0.4em
 }
 
-.articleBody ul li br {
+ ul li br {
 	display: block;
 }
 
@@ -250,9 +310,13 @@ iframe {
 	aspect-ratio: 16/9;
 }
 
-figure, iframe {
+figure, iframe, img {
 	margin-block: 2em;
 	display: block;
+}
+
+figure img {
+	margin: 0;
 }
 
 figcaption {
@@ -262,6 +326,10 @@ figcaption {
 	text-align: left;
 	display: block;
 	opacity: 0.5
+}
+
+.articleBody > figure, .articleBody > iframe {
+	margin-top: 1em;
 }
 
 /* Brand New fixes */
