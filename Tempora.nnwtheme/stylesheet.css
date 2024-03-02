@@ -81,7 +81,7 @@ body {
 
 .articleTitle h1 {
 	color: var(--tt-color);
-	font-size: clamp(20px, 2em, 40px);
+	font-size: clamp(18px, 2em, 40px);
 	text-align: left;
 	font-style: normal;
 	line-height: 1.3em;
@@ -106,7 +106,7 @@ body {
 	gap: 16px;
 	color: var(--mt-color);
 	border-bottom: 1px solid var(--bo-color);
-	padding-block: 16px;
+	padding-block: 0px;
 	line-height: 1.5;
 	min-height: calc(2.65em + 32px);
 }
@@ -187,6 +187,7 @@ body {
 	position: relative;
 	/* white-space: break-spaces; */
 	font-family: var(--mono-fnt);
+	font-size: 0.9em;
 	color: var(--cd-color);
 	max-width: 100%;
 	overflow: auto;
@@ -308,6 +309,7 @@ img, figure, video, iframe {
 
 iframe {
 	aspect-ratio: 16/9;
+	width: 100%;
 }
 
 figure, iframe, img {
@@ -368,6 +370,8 @@ figcaption {
 
 /* iOS specific */
 @supports (-webkit-touch-callout: none) {
-
+	.feedHeader, .articleBody {
+		font-size: [[font-size]]px;
+	}
 }
 
